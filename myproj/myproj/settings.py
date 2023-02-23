@@ -14,6 +14,7 @@ SECRET_KEY = mySECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = ["*"]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -46,7 +48,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
-    'corsheaders.middleware.CorsMiddleware',
+    
     'django.middleware.common.CommonMiddleware',
 
 ]
@@ -105,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'Ko-KR'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -123,3 +125,32 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CORS 설정 관련 추가함
+CORS_ALLOW_METHODS = [  # 허용할 옵션
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+CORS_ALLOW_HEADERS = [ # 허용할 헤더
+                      
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS: True
+
+# CORS 관련 추가
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8000','http://localhost:8000','http://127.0.0.1:3000','http://localhost:3000']
+CORS_ALLOW_CREDENTIALS = True

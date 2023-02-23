@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User    # 이걸 그냥 가져다 쓴다.(민우)
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 
@@ -10,6 +10,7 @@ from rest_framework.views import APIView
 
 from .models import letter
 from .serializer import LetterSerializer, CreateLetterSerializer
+
 
 
 class LetterList(APIView):
@@ -38,3 +39,17 @@ class LetterDetail(APIView):
         letter=self.get_letter(letter_pk)
         serializer=LetterSerializer(letter)
         return Response(serializer.data)
+    
+    
+    
+# 해당 유저를 찾는 뷰를 구현한다.
+from rest_framework import generics
+from django.contrib.auth import get_user_model
+from letterapp.serializer import UserSearchSerializer
+
+User = get_user_model()
+
+class UserSearchAPIView(generics.RetrieveAPIView):
+    serializer_class = UserSearchSerializer
+    lookup_field = 'username'
+    queryset = User.objects.all()

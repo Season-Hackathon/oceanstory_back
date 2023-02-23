@@ -14,4 +14,7 @@ urlpatterns = [
     
     # letter_pk 편지 디테일
     path('<int:letter_pk>/', views.LetterDetail.as_view()), 
+    
+    # 해당 유저를 찾는 
+    path('users/search/<str:username>/', views.UserSearchAPIView.as_view()),
 ]

@@ -64,7 +64,8 @@ from django.contrib.auth import authenticate    # 장고의 기본 authenticate 
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField(required=True)
-    password = serializers.CharField(required=True, write_only=True)
+    password = serializers.CharField(required=True)
+    #password = serializers.CharField(required=True, write_only=True)
     
     # write_only 옵션을 통해 클라이언트 -> 서버 방향의 역 직렬화는 가능, 서버->클라이언트 방향의 직렬화는 불가능하게 함
     

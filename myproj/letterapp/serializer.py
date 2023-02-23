@@ -18,3 +18,17 @@ class CreateLetterSerializer(serializers.ModelSerializer):
     class Meta:
         model = letter
         fields = ['sender', 'title', 'content', 'receiver']
+        
+        
+        
+# 해당 유저 찾는 시리얼라이저 생성
+        
+from rest_framework import serializers
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+class UserSearchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username']  # 필요한 필드를 지정
