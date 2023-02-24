@@ -14,11 +14,11 @@ urlpatterns = [
     path('search/<str:username>/', views.UserSearchAPIView.as_view()),
     
     # receiver_pk에게 편지 작성
-    path('<str:receiver_name>/send/', views.LetterSend.as_view()),
+    path('send/<str:receiver_name>/', views.LetterSend.as_view()),
     
     # receiver_pk가 받은 모든 편지 조회
-    path('<str:receiver_username>/list/',views.LetterReceiverList.as_view()),
+    path('list/<str:receiver_username>/',views.LetterReceiverList.as_view()),
    
-    # receiver_pk가 받은 letter_pk 편지 디테일
+    # receiver_pk가 받은 letter_pk 편지 디테일(나중에 규칙에 맞게 수정해야)
     path('<int:receiver_name>/list/<int:letter_pk>/', views.LetterDetail.as_view()), 
 ]
