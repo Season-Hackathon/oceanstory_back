@@ -24,3 +24,5 @@ class letter(models.Model):
         
     def __str__(self):
         return self.title   # 데이터를 불러올때
+    
+    

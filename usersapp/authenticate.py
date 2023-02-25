@@ -3,6 +3,7 @@ from rest_framework.authentication import BaseAuthentication, CSRFCheck
 
 from django.conf import settings
 from django.contrib.auth.models import User
+from rest_framework import authentication, exceptions
 import jwt
 
 
@@ -54,3 +55,5 @@ class SafeJWTAuthentication(BaseAuthentication):
         reason = check.process_view(request, None, (), {})
         if reason:
             raise exceptions.PermissionDenied(f'CSRF Failed: {reason}')
+        
+        
