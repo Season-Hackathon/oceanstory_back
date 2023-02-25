@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    
+     
     # app
     'letterapp',
     'usersapp',
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'ko-KR'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -126,8 +126,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS 관련 추가
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8000','http://localhost:8000','http://127.0.0.1:3000','http://localhost:3000']
+#CORS_ALLOW_ALL_ORIGINS = True
+#CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8000','http://localhost:8000','http://127.0.0.1:3000','http://localhost:3000','https://08d8-2001-e60-925a-5b10-79-e833-7703-5107.jp.ngrok.io' ]
+
+CORS_ORIGIN_ALLOW_ALL = True    
 CORS_ALLOW_CREDENTIALS = True
 
 

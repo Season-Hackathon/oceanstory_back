@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+#from letterapp.views import LetterCountView
 
  
 
@@ -19,6 +20,6 @@ urlpatterns = [
     # receiver_pk가 받은 모든 편지 조회
     path('list/<str:receiver_username>/',views.LetterReceiverList.as_view()),
    
-    # receiver_pk가 받은 letter_pk 편지 디테일(나중에 규칙에 맞게 수정해야)
-    path('<int:receiver_name>/list/<int:letter_pk>/', views.LetterDetail.as_view()), 
+    # receiver_pk가 받은 letter_pk 편지 디테일() 
+    path('list/<str:receiver_name>/<int:id>/', views.LetterDetail.as_view()), 
 ]

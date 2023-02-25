@@ -41,3 +41,5 @@ class UserSearchSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username']  # 필요한 필드를 지정
+
+# # 해당 유저가 오늘 받은 편지의 개수를 세주는 serializer를 만들어야 한다.

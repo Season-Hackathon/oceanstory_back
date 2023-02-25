@@ -72,7 +72,8 @@ class LoginSerializer(serializers.Serializer):
         user = authenticate(**data)
         if user:
             token= Token.objects.get(user=user)    # 사용자의 아이디와 입력한 아이디가 일치하면 로그인 실행
-            return token
+            #return token
+            return {'token': token, 'username': user.username}
         raise serializers.ValidationError(
             {"error": "Unable to log in with provided credentials."}
         )

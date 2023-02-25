@@ -10,11 +10,11 @@ from rest_framework import permissions
 
 
 from .models import letter
-from .serializer import LetterSerializer, CreateLetterSerializer
+from .serializer import LetterSerializer, CreateLetterSerializer#,LetterCountSerializer
 
 from rest_framework import generics
 from django.contrib.auth import get_user_model
-from letterapp.serializer import UserSearchSerializer
+from letterapp.serializer import UserSearchSerializer  #, LetterCountSerializer
 from usersapp.authenticate import SafeJWTAuthentication
 
 # 전체 편지 리스트 API (개발용)
@@ -83,3 +83,5 @@ class UserSearchAPIView(generics.RetrieveAPIView):
     serializer_class = UserSearchSerializer
     lookup_field = 'username'
     queryset = User.objects.all()
+    
+# 해당 회원이 하루에 몇개의 편지를 받았는지 구현 해야 한다.    
